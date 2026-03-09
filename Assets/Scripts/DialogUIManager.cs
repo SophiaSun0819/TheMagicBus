@@ -78,8 +78,8 @@ public class DialogUIManager : MonoBehaviour
             return;
         }
         BuildUI(dialogCanvas);
-        if (dialogPanel != null) dialogPanel.SetActive(false);
-        if (dialogCanvas != null) dialogCanvas.SetActive(false);
+        // if (dialogPanel != null) dialogPanel.SetActive(false);
+        // if (dialogCanvas != null) dialogCanvas.SetActive(false);
         // 不默认关 redBloodCellCanvas，保持场景里原有状态
         // 游戏开始时自动与第一个NPC对话
         NPCCharacter npc = FindFirstObjectByType<NPCCharacter>();
@@ -417,10 +417,23 @@ public class DialogUIManager : MonoBehaviour
         Vector2 m = Input.mousePosition;
         return m.x >= smin.x && m.x <= smax.x && m.y >= smin.y && m.y <= smax.y;
     }
+ public void SelectNPCFromButton(GameObject buttonObject)
+{
+    NPCCharacter npc = buttonObject.GetComponent<NPCCharacter>();
 
-    void SelectNPC(NPCCharacter npc)
+    if (npc != null)
+    {
+            if (selectedNPC != npc)
+            {
+                 SelectNPC(npc);
+            }
+       
+    }
+}
+   public void SelectNPC(NPCCharacter npc)
     {
         selectedNPC = npc;
+        Debug.Log(npc.characterName);
         hasStartedVoiceQA = false;
         chatHistory.Clear();
         storySegments.Clear();
@@ -434,8 +447,8 @@ public class DialogUIManager : MonoBehaviour
         if (canvasToUse == null) canvasToUse = dialogCanvas;
 
         // 只关掉“当前不用的”那个，不关 red blood cell canvas（保持场景里原有状态）
-        if (canvasToUse == redBloodCellCanvas && dialogCanvas != null)
-            dialogCanvas.SetActive(false);
+        // if (canvasToUse == redBloodCellCanvas && dialogCanvas != null)
+        //     dialogCanvas.SetActive(false);
         BuildUI(canvasToUse);
         currentDialogCanvas = canvasToUse;
 

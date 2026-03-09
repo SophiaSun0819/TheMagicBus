@@ -1,0 +1,66 @@
+{
+    "version": 1,
+    "name": "SnapRight",
+    "maps": [
+        {
+            "name": "Snap",
+            "id": "b6baf751-d2c3-441c-a9a7-2b337032a51a",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "db9d57b3-2802-4702-8548-accc40638c60",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "haptic",
+                    "type": "PassThrough",
+                    "id": "4cc7d072-3e05-46ad-87b0-3fadd0ed2756",
+                    "expectedControlType": "Haptic",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ecc98468-6bdb-42b2-8e69-336ec7627cd9",
+                    "path": "<XRInputV1::Oculus::MetaQuestTouchPlusControllerOpenXR>{RightHand}/{GripButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9bde3f04-f9e5-4373-b74c-e64537b838c9",
+                    "path": "<XRController>{RightHand}/gripButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5250cecf-716d-4e72-8b76-34eb86be4315",
+                    "path": "<XRController>{RightHand}/{Haptic}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "haptic",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
